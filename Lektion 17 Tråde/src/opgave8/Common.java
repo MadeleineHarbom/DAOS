@@ -26,7 +26,7 @@ public class Common {
 
     public void opdterGlobal() {
         int temp = tealler;
-        tagerRandomTid(100);
+        tagerRandomTid(1000);
         tealler = temp + 1;
     }
 }

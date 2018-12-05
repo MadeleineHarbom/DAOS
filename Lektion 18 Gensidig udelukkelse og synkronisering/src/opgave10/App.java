@@ -8,8 +8,6 @@ public class App {
 
 
         Common c = new Common();
-        c.opdterGlobal();
-        boolean live = false;
         ThreadClass t1 = new ThreadClass("Traad 1", c);
         ThreadClass t2 = new ThreadClass("Traad 2", c);
         try {

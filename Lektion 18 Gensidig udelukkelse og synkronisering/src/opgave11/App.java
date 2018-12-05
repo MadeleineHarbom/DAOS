@@ -5,8 +5,7 @@ public class App {
 
 
         Common c = new Common();
-        c.opdterGlobal();
-        boolean live = false;
+
         ThreadClass t1 = new ThreadClass("Traad 1", c);
         ThreadClass t2 = new ThreadClass("Traad 2", c);
         t1.start();
@@ -18,7 +17,7 @@ public class App {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Jeg er din counter " + c.getTealler());
+        System.out.println("Jeg er din counter " + Common.tealler);
 
     }
 }

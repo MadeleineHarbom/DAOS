@@ -1,7 +1,7 @@
 package opgave11;
 
 public class Common {
-    private static int tealler;
+    public static int tealler;
     //Random r;
 
     public Common() {
@@ -17,10 +17,6 @@ public class Common {
             }
             r1 = (int) Math.abs(Math.random()*1000);
         }
-    }
-
-    public int getTealler() {
-        return tealler;
     }
 
 
