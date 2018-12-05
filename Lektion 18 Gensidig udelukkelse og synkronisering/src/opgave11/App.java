@@ -1,9 +1,9 @@
-package opgave9;
+package opgave11;
 
 public class App {
     public static void main(String[] args) {
-        //JEG ER IKKE FAERIG!
-        //GOOGLE PETERSONS ALGORITME!
+
+
         Common c = new Common();
         c.opdterGlobal();
         boolean live = false;
@@ -14,12 +14,11 @@ public class App {
         try {
             t1.join();
             t2.join();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Jeg er din counter " +c.getTealler());
+        System.out.println("Jeg er din counter " + c.getTealler());
 
     }
 }

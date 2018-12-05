@@ -2,6 +2,8 @@ package opgave8;
 
 public class App {
     public static void main(String[] args) {
+
+        //TJEKKE AT DENNE OPGSAVE ER KORREKT
         Common c = new Common();
         c.opdterGlobal();
         boolean live = false;
