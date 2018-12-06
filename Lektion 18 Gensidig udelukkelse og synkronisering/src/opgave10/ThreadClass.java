@@ -7,6 +7,7 @@ public class ThreadClass extends Thread {
     Common c;
     public boolean live;
     public static Semaphore semaphore = new Semaphore(1, true);
+    //semaforen kan ligge her, men kan ogsaa bare ligge i Thread
 
 
     public ThreadClass(String navn, Common common) {

@@ -2,13 +2,12 @@ package opgave9;
 
 public class App {
     public static void main(String[] args) {
-        //JEG ER IKKE FAERIG!
-        //GOOGLE PETERSONS ALGORITME!
+        //JEG VIRKER IKKE!
+        //PETERSONS ALGORITME!
         Common c = new Common();
-        c.opdterGlobal();
-        boolean live = false;
-        ThreadClass t1 = new ThreadClass("Traad 1", c);
-        ThreadClass t2 = new ThreadClass("Traad 2", c);
+
+        ThreadClass t1 = new ThreadClass("Traad 1", c, 0);
+        ThreadClass t2 = new ThreadClass("Traad 2", c, 1);
         t1.start();
         t2.start();
         try {
@@ -19,7 +18,7 @@ public class App {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Jeg er din counter " +c.getTealler());
+        System.out.println("Jeg er din counter " +c.tealler);
 
     }
 }

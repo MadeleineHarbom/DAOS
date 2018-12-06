@@ -1,11 +1,32 @@
 package opgave9;
 
 public class Common {
-    private static int tealler;
+
+    volatile public int turn = 0;
+    public boolean[] flag = new boolean[2];
+
+    public int tealler = 0;
     //Random r;
 
     public Common() {
-        tealler = 5;
+        flag[0] = false;
+        flag[1] = false;
+    }
+
+    public void setFlag(boolean flag, int id) {
+        this.flag[id] = flag;
+    }
+
+    public boolean getFlag(int id) {
+        return flag[id];
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    public int getTurn() {
+        return turn;
     }
 
     public void tagerRandomTid(int max) {
@@ -19,9 +40,7 @@ public class Common {
         }
     }
 
-    public int getTealler() {
-        return tealler;
-    }
+
 
 
     public void opdterGlobal() {

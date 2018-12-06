@@ -5,7 +5,7 @@ public class Common {
     //Random r;
 
     public Common() {
-        tealler = 5;
+        tealler = 0;
     }
 
     public void tagerRandomTid(int max) {

@@ -13,10 +13,15 @@ public class ThreadClass extends Thread {
 
     public void run() {
         this.live = true;
-        thingy();
+        for (int j = 0; j < 100; j++) {
+            c.opdterGlobal();
+            c.tagerRandomTid(100);
+            System.out.println("Jeg er " + this.name);
+        }
         live = false;
     }
 
+    //Jeg er en testmetode
     private synchronized void thingy() {
         for (int j = 0; j < 100; j++) {
             c.opdterGlobal();
