@@ -1,6 +1,7 @@
 package opgave2;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 public class Common {
     volatile public int turn = 0;
@@ -8,11 +9,13 @@ public class Common {
     public static int taeller;
     public static int serving;
     private Random r;
+    public static Semaphore sem;
 
     public Common() {
         flag = new boolean[99]; // da den dovne ekspedient gaar hjem efter 100 kunde
         taeller = 0;
         r = new Random();
+        sem = new Semaphore(1, false);
     }
 
     public void setFlag(boolean flag, int id) {

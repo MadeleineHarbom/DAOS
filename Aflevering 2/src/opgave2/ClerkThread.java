@@ -1,11 +1,12 @@
 package opgave2;
 
+import java.util.concurrent.Semaphore;
+
 public class ClerkThread extends Thread{
     //jeg er consumer, tager fra koe
     //skal afklare customerThreads med random interval
     //busy waiting
     private Common c;
-
 
 
     public ClerkThread(Common c) {
@@ -16,7 +17,7 @@ public class ClerkThread extends Thread{
 
 
     public void run() {
-        while (c.serving < 100) {
+        while (c.serving <= 100) {
             while (c.serving > c.taeller) {
                 c.tagerRandomTid(200);
             }

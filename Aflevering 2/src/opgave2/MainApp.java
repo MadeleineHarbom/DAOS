@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class MainApp {
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         Random r = new Random();
         EnteranceThread t1;
         EnteranceThread t2;
@@ -25,6 +26,15 @@ public class MainApp {
                 t2.start();
             }
         }
+        long slut = System.currentTimeMillis();
+        try {
+            clerk.join();
+        }
+        catch (Exception e) {
+
+        }
+        System.out.println("Det vare bare nogle super lange " + (slut - start) + " milisekunder!");
+        System.out.println("Nu tager jeg hjem!");
     }
 
 

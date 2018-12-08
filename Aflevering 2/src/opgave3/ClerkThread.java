@@ -1,4 +1,4 @@
-package opgave1;
+package opgave3;
 
 public class ClerkThread extends Thread{
     //jeg er consumer, tager fra koe
@@ -17,10 +17,16 @@ public class ClerkThread extends Thread{
 
     public void run() {
         while (c.serving < 100) {
-            while (c.serving > c.taeller) {
-                c.tagerRandomTid(200);
+            //vores sagbehandler arbejder
+            if (c.serving > c.taeller) {
+                try {
+                    this.wait();
+                }
+                catch (Exception e) {
+
+                }
             }
-            //vores sagbehandler arbejder hurtigt
+
             //hun tager kunderne naar det efterspurgt et nummer, og venter ikke paa at de kigget paa sedelen.
             int temp = c.serving;
             c.betjene();

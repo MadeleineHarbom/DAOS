@@ -1,5 +1,6 @@
-package opgave1;
+package opgave3;
 
+import javax.management.monitor.Monitor;
 import java.util.Random;
 
 public class Common {
@@ -13,6 +14,7 @@ public class Common {
         flag = new boolean[99]; // da den dovne ekspedient gaar hjem efter 100 kunde
         taeller = 0;
         r = new Random();
+
     }
 
     public void setFlag(boolean flag, int id) {
@@ -31,7 +33,7 @@ public class Common {
         return turn;
     }
 
-    public int getKoeNummer() {
+    public synchronized int getKoeNummer() {
         int temp = taeller;
         taeller = temp +1;
         return taeller;
@@ -40,6 +42,7 @@ public class Common {
     public void betjene() {
         tagerRandomTid(10);
         serving++;
+
     }
 
     public void tagerRandomTid(int max) {

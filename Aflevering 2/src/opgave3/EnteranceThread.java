@@ -1,4 +1,4 @@
-package opgave1;
+package opgave3;
 
 public class EnteranceThread extends Thread {
     //jeg er producer, tilfojer til koe
@@ -6,29 +6,27 @@ public class EnteranceThread extends Thread {
     //peterson
     public Common c;
     public int indgang;
-    private int concurrentID;
+    private ClerkThread clerk;
 
 
 
-    public EnteranceThread(int indgang, Common common) {
+    public EnteranceThread(int indgang, Common common, ClerkThread clerk) {
         this.indgang = indgang;
         this.c = common;
+        this.clerk = clerk;
     }
 
     @Override
     public void run() {
-        concurrentID = (this.indgang + 1) %2;
-        c.setFlag(true, this.indgang);
-        c.setTurn(concurrentID);
-        while (c.getFlag(concurrentID) && c.getTurn() == concurrentID) {
-            c.tagerRandomTid(50);
-        }
         // Entering critical
-        int nr = c.getKoeNummer();
+        int nr = c.getKoeNummer(); //synch'ed
+        //leaving critical
+        clerk.notify();
         System.out.println("Jeg bruger indgang " + this.indgang);
         System.out.println("Jeg fik nummer " +  nr);
-        //leaving critical
-        c.setFlag(false, this.indgang);
+
+
+
 
 
 
