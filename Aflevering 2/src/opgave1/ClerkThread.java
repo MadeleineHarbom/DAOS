@@ -16,16 +16,16 @@ public class ClerkThread extends Thread{
 
 
     public void run() {
-        while (c.serving < 100) {
+        while (c.serving < 101) {
             while (c.serving > c.taeller) {
-                c.tagerRandomTid(200);
+                c.tagerRandomTid(10);
             }
             //vores sagbehandler arbejder hurtigt
             //hun tager kunderne naar det efterspurgt et nummer, og venter ikke paa at de kigget paa sedelen.
-            int temp = c.serving;
+
             c.betjene();
-            System.out.println("Faerdig med at betjene " + temp);
-            c.serving = temp +1;
+
+
         }
 
 

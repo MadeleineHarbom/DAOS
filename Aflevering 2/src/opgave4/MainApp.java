@@ -1,4 +1,4 @@
-package opgave3;
+package opgave4;
 
 import java.util.Random;
 
@@ -20,12 +20,22 @@ public class MainApp {
             if (entrance < 0.5) {
                 t1 = new EnteranceThread(0, c, clerk);
                 t1.start();
+                try {
+                    t1.join();
+                }
+                catch (Exception e) {
 
+                }
             }
             else {
                 t2 = new EnteranceThread(1, c, clerk);
                 t2.start();
+                try {
+                    t2.join();
+                }
+                catch (Exception e) {
 
+                }
             }
         }
     }

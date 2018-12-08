@@ -1,4 +1,4 @@
-package opgave3;
+package opgave4;
 
 
 import java.util.Random;

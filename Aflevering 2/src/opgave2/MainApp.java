@@ -17,13 +17,16 @@ public class MainApp {
 
         for (int i = 0; i < 100; i++) {
             double entrance = Math.random();
+            c.tagerRandomTid(300);
             if (entrance < 0.5) {
                 t1 = new EnteranceThread(0, c);
                 t1.start();
+
             }
             else {
                 t2 = new EnteranceThread(1, c);
                 t2.start();
+
             }
         }
         long slut = System.currentTimeMillis();

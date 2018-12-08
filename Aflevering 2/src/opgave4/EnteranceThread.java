@@ -1,4 +1,4 @@
-package opgave3;
+package opgave4;
 
 public class EnteranceThread extends Thread {
     //jeg er producer, tilfojer til koe

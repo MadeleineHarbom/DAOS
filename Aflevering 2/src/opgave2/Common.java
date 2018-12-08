@@ -36,6 +36,7 @@ public class Common {
 
     public int getKoeNummer() {
         int temp = taeller;
+        tagerRandomTid(200);
         taeller = temp +1;
         return taeller;
     }

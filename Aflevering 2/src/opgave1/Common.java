@@ -1,18 +1,18 @@
 package opgave1;
 
-import java.util.Random;
+
 
 public class Common {
     volatile public int turn = 0;
-    private boolean[] flag;
-    public static int taeller;
-    public static int serving;
-    private Random r;
+    volatile private boolean[] flag;
+    volatile public int taeller;
+    volatile public int serving;
 
     public Common() {
-        flag = new boolean[99]; // da den dovne ekspedient gaar hjem efter 100 kunde
+        flag = new boolean[2];
         taeller = 0;
-        r = new Random();
+        flag[0] = false;
+        flag[1] = false;
     }
 
     public void setFlag(boolean flag, int id) {
@@ -32,14 +32,16 @@ public class Common {
     }
 
     public int getKoeNummer() {
-        int temp = taeller;
-        taeller = temp +1;
+        //tagerRandomTid(100);
+        taeller = taeller + 1;
         return taeller;
     }
 
     public void betjene() {
+        int temp = serving;
         tagerRandomTid(10);
-        serving++;
+        System.out.println("Faerdig med at betjene " + temp);
+        serving = temp + 1;
     }
 
     public void tagerRandomTid(int max) {

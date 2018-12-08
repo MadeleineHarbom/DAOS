@@ -33,16 +33,6 @@ public class EnteranceThread extends Thread {
 
     }
 
-    public void getService() {
-        int r1 = (int) Math.abs(Math.random()*1000);
-        int r2 = (int) Math.abs(Math.random()*1000);
-        for (int i = 0; i < 100; i += r1) {
-            for (int j = 0; j < 200; j += r2) {
-                r2 = (int) Math.abs(Math.random()*1000);
-            }
-            r1 = (int) Math.abs(Math.random()*1000);
-        }
 
-    }
 
 }
