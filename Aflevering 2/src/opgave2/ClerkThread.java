@@ -1,4 +1,4 @@
-package opgave1;
+package opgave2;
 
 public class ClerkThread extends Thread{
     //jeg er consumer, tager fra koe
