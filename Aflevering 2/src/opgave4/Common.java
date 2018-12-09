@@ -1,16 +1,14 @@
 package opgave4;
 
-import java.util.NoSuchElementException;
-
 /**
  * An implementation of a queue as a circular array.
  */
 public class Common {
 	private String[] elements;
 	public int currentSize;
-	public static int lastAdded;
-	public static int serving;
-	public static int taeller;
+	public int lastAdded;
+	public int serving;
+	public int taeller;
 	public int size;
 
 	/**
@@ -20,46 +18,26 @@ public class Common {
 		this.size = size;
 		elements = new String[this.size];
 		currentSize = 0;
-
 	}
 
-
-	public boolean isEmpty() {
-		return currentSize == 0;
-	}
-
-
-
-	public void enqueue(String name) {
+	public synchronized void enqueue(String name) {
 		currentSize++;
-		elements[lastAdded+1] = name;
+		taeller++;
 		lastAdded = (lastAdded + 1) % elements.length;
+		elements[lastAdded] = name;
+		System.out.println(name + " er nu i koe");
 	}
 
-
-	public Object dequeue() {
+	public synchronized String dequeue() {
 		if (currentSize == 0) {
-			throw new NoSuchElementException();
+			return null;
 		}
-		Object removed = elements[serving];
+		String removed = elements[serving];
 		serving = (serving + 1) % elements.length;
 		currentSize--;
 		return removed;
 	}
 
-
-
-
-	public synchronized int getKoeNummerDelete() {
-		while (currentSize >= this.size) {
-
-		}
-		int temp = taeller;
-		tagerRandomTid(200);
-		taeller = temp +1;
-		System.out.println("Jeg fik nummer " +  taeller);
-		return taeller;
-	}
 
 	public void tagerRandomTid(int max) {
 		int r1 = (int) Math.abs(Math.random()*1000);
