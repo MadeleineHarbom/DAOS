@@ -1,13 +1,14 @@
 package opgave1;
 
-import java.util.Random;
-
 public class MainApp {
     public static void main(String[] args) {
         Common c = new Common();
-        EnteranceThread t1 = new EnteranceThread(0, c);
-        EnteranceThread t2 = new EnteranceThread(1, c);
 
+        EntranceThread entrance1 = new EntranceThread(0, c);
+        EntranceThread entrance2 = new EntranceThread(1, c);
+
+        entrance1.start();
+        entrance2.start();
 
         ClerkThread clerk = new ClerkThread(c);
         clerk.start();
@@ -18,32 +19,15 @@ public class MainApp {
 
         //En koe for at komme til nummermaskinen
         for (int i = 0; i < 100; i++) {
-            c.tagerRandomTid(300);
             double entrance = Math.random();
             if (entrance < 0.5) {
-                t1.start();
-//                try {
-//                    t1.join();
-//                }
-//                catch (Exception e) {
-//
-//                }
-
+                CustomerThread customer = new CustomerThread(entrance1, i);
+                customer.start();
             }
             else {
-                t2.start();
-//                try {
-//                        t2.join();
-//                }
-//                catch (Exception e) {
-//
-//                }
+                CustomerThread customer = new CustomerThread(entrance2, i);
+                customer.start();
             }
-
         }
     }
-
-
-
-
 }

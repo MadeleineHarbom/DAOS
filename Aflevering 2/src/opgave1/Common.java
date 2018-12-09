@@ -1,7 +1,6 @@
 package opgave1;
 
 
-
 public class Common {
     volatile public int turn = 0;
     volatile private boolean[] flag;
@@ -39,21 +38,13 @@ public class Common {
 
     public void betjene() {
         int temp = serving;
-        tagerRandomTid(10);
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+
+        }
         System.out.println("Faerdig med at betjene " + temp);
         serving = temp + 1;
     }
-
-    public void tagerRandomTid(int max) {
-        int r1 = (int) Math.abs(Math.random()*1000);
-        int r2 = (int) Math.abs(Math.random()*1000);
-        for (int i = 0; i < max; i += r1) {
-            for (int j = 0; j < max*2; j += r2) {
-                r2 = (int) Math.abs(Math.random()*1000);
-            }
-            r1 = (int) Math.abs(Math.random()*1000);
-        }
-    }
-
 
 }
