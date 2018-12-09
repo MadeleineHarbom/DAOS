@@ -19,32 +19,41 @@ public class EnteranceThread extends Thread {
     @Override
     public void run() {
         // Entering critical
-        c.getKoeNummer(); //synch'ed
+        this.getKoeNummer(); //synch'ed
         System.out.println("Jeg bruger indgang " + this.indgang);
         //leaving critical
         synchronized (clerk) {
             clerk.notify();
         }
-        //clerk.notify();
-
-
-
-
-
-
-
     }
 
-    public void getService() {
+    public void tagerRandomTid(int max) {
         int r1 = (int) Math.abs(Math.random()*1000);
         int r2 = (int) Math.abs(Math.random()*1000);
-        for (int i = 0; i < 100; i += r1) {
-            for (int j = 0; j < 200; j += r2) {
+        for (int i = 0; i < max; i += r1) {
+            for (int j = 0; j < max*2; j += r2) {
                 r2 = (int) Math.abs(Math.random()*1000);
             }
             r1 = (int) Math.abs(Math.random()*1000);
         }
+    }
+
+    public synchronized void getKoeNummer() {
+        while (c.currentSize >= c.size) {
+
+        }
+        int temp = c.taeller;
+        c.tagerRandomTid(200);
+        c.taeller = temp +1;
+        System.out.println("Jeg fik nummer " +  c.taeller);
+    }
+
+    public void betjene() {
+        c.tagerRandomTid(100);
+        c.serving++;
 
     }
+
+
 
 }

@@ -7,10 +7,13 @@ public class MainApp {
         Random r = new Random();
         EnteranceThread t1;
         EnteranceThread t2;
+        ClerkThread c1;
+        ClerkThread c2;
         //2 billet automater
         //1 ekspedient
         //brug af buzy waiting
-        Common c = new Common();
+        Common c = new Common(10);
+        int end = 100;
         ClerkThread clerk = new ClerkThread(c);
         clerk.start();
 
@@ -20,23 +23,19 @@ public class MainApp {
             if (entrance < 0.5) {
                 t1 = new EnteranceThread(0, c, clerk);
                 t1.start();
-                try {
-                    t1.join();
-                }
-                catch (Exception e) {
 
-                }
             }
             else {
                 t2 = new EnteranceThread(1, c, clerk);
                 t2.start();
-                try {
-                    t2.join();
-                }
-                catch (Exception e) {
 
-                }
             }
+        }
+
+        while (end < 100) { {
+
+        }
+
         }
     }
 
