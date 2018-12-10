@@ -13,8 +13,6 @@ public class MainApp {
         ClerkThread clerk = new ClerkThread(c);
         clerk.start();
 
-        int start = 0;
-        int end = 100;
         
 
         //En koe for at komme til nummermaskinen

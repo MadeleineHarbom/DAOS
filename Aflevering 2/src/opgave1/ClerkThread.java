@@ -13,7 +13,7 @@ public class ClerkThread extends Thread{
     }
 
     public void run() {
-        while (true) {
+        while (c.taeller < 100) {
             while (c.serving > c.taeller) {
                 try {
                     Thread.sleep(100);
@@ -22,7 +22,7 @@ public class ClerkThread extends Thread{
 
                 }
             }
-            c.betjene();
+            System.out.println(c.betjene()); //fjern sout
 
 
         }

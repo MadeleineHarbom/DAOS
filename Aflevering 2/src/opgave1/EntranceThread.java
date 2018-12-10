@@ -19,7 +19,7 @@ public class EntranceThread extends Thread {
     @Override
     public void run() {
         int concurrentID = (this.indgang + 1) %2;
-        while(true){
+        while(c.taeller < 100){
             c.setFlag(true, this.indgang);
             c.setTurn(concurrentID);
             while (c.getFlag(concurrentID) && c.getTurn() == concurrentID) {
@@ -48,7 +48,7 @@ public class EntranceThread extends Thread {
 
     }
 
-    public void getInLine(CustomerThread customerThread) {
-        this.queue.add(customerThread);
+    public void getInLine(CustomerThread customer) {
+        this.queue.add(customer);
     }
 }

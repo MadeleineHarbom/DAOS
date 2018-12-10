@@ -31,12 +31,14 @@ public class Common {
     }
 
     public int getKoeNummer() {
-        //tagerRandomTid(100);
-        taeller = taeller + 1;
+        int temp = taeller;
+        tagerRandomTid(40);
+        taeller = temp + 1;
+
         return taeller;
     }
 
-    public void betjene() {
+    public int betjene() {
         int temp = serving;
         try {
             Thread.sleep(10);
@@ -45,6 +47,18 @@ public class Common {
         }
         System.out.println("Faerdig med at betjene " + temp);
         serving = temp + 1;
+        return serving; //delete return statement
+    }
+
+    public void tagerRandomTid(int max) {
+        int r1 = (int) Math.abs(Math.random()*1000);
+        int r2 = (int) Math.abs(Math.random()*1000);
+        for (int i = 0; i < max; i += r1) {
+            for (int j = 0; j < max*2; j += r2) {
+                r2 = (int) Math.abs(Math.random()*1000);
+            }
+            r1 = (int) Math.abs(Math.random()*1000);
+        }
     }
 
 }
