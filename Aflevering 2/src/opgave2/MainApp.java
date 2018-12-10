@@ -8,9 +8,7 @@ public class MainApp {
         Random r = new Random();
         EnteranceThread t1;
         EnteranceThread t2;
-        //2 billet automater
-        //1 ekspedient
-        //brug af buzy waiting
+
         Common c = new Common();
         ClerkThread clerk = new ClerkThread(c);
         clerk.start();

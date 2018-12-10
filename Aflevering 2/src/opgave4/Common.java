@@ -1,8 +1,6 @@
 package opgave4;
 
-/**
- * An implementation of a queue as a circular array.
- */
+
 public class Common {
 	private String[] elements;
 	public int currentSize;
@@ -11,9 +9,6 @@ public class Common {
 	public int taeller;
 	public int size;
 
-	/**
-	 * Constructs an empty queue.
-	 */
 	public Common(int size) {
 		this.size = size;
 		elements = new String[this.size];
